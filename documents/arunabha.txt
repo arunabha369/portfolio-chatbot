@@ -1,0 +1,23 @@
+My name is Arunabha Banerjee. I am a B.Tech student in Computer Science and Business Systems (CSBS) at Techno India University, West Bengal. I am deeply interested in full-stack web development, backend systems, system design, and modern Generative AI workflows. I enjoy building scalable, user-centric applications and turning ideas into reliable, real-world solutions.
+
+I have built several major projects as part of my learning journey.
+
+One of my key projects is HRSphere, a Human Resource Management System. In this project, I built a complete platform to manage employee data, roles, and workflows. I developed the frontend using React and Tailwind CSS with a clean and responsive UI. I implemented backend APIs using Node.js, Express, and MongoDB for efficient data handling. The system focuses on scalability, role-based access control, and smooth user experience.
+
+Another important project is CodeMate, a developer matchmaking platform. I built a real-time application that connects developers based on their skills and interests. The frontend is built using React, Tailwind CSS, shadcn/ui, and Motion for modern UI and animations. I used Socket.io for real-time messaging and designed the backend using Node.js, Express, and MongoDB for authentication and data storage.
+
+I also built Puja Parikrama Planner, an interactive travel planning app for Durga Puja pandal hopping. In this project, I integrated Leaflet.js maps to display routes and locations. I used HTML, CSS, and JavaScript for development and deployed the application on Netlify. This project helps users plan routes efficiently during festival time.
+
+Another project I worked on is Bharat-Darshan, a cultural and natural travel platform showcasing India’s heritage and tourism destinations. It is built using React, JavaScript, HTML, and CSS with a strong focus on clean UI, accessibility, and informative design.
+
+My technical skills include C++, JavaScript, and Python. I work with frontend technologies like React.js, Tailwind CSS, HTML, and CSS. On the backend, I use Node.js, Express.js, and REST APIs. I have experience working with MongoDB and PostgreSQL as databases. I use Git and GitHub for version control and collaboration. I also have hands-on experience with Generative AI and Retrieval-Augmented Generation (RAG) workflows.
+
+I have solved more than 200 coding problems on platforms like LeetCode, GeeksforGeeks, and Take U Forward, which has helped me build a strong foundation in data structures and algorithms. I have implemented multiple real-world web applications and continuously focus on improving my problem-solving and system design skills.
+
+My career goal is to become a Software Development Engineer, where I can work on scalable systems, backend infrastructure, and impactful products while continuously learning and growing as an engineer.
+
+In my free time, I enjoy playing chess, solving coding problems, traveling, and reading books.
+
+My favorite quote is: "I write things for machines—and they understand."
+
+You can find my work on GitHub at https://github.com/arunabha369 and connect with me on LinkedIn at https://www.linkedin.com/in/arunabha369/. You can also reach me at arunabhabanerjee5@gmail.com.

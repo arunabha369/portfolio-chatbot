@@ -1,0 +1,115 @@
+{
+  "name": "Arunabha Banerjee",
+  "location": "Kolkata, West Bengal, India",
+  "age": 22,
+  "degree": "B.Tech in Computer Science and Business Systems (CSBS)",
+  "college": "Techno India University, West Bengal",
+  "education": {
+    "10th": {
+      "school": "Bantika High School (H.S.)",
+      "marks": "84.57%"
+    },
+    "12th": {
+      "school": "Bantika High School (H.S.)",
+      "marks": "84.20%"
+    },
+    "graduation": {
+      "degree": "B.Tech in Computer Science and Business Systems (CSBS)",
+      "college": "Techno India University, West Bengal",
+      "semester": "7th"
+    }
+  },
+  "skills": [
+    "C++",
+    "JavaScript",
+    "Python",
+    "React.js",
+    "MongoDB",
+    "PostgreSQL",
+    "Express.js",
+    "Node.js",
+    "TailwindCSS",
+    "REST APIs",
+    "Generative AI",
+    "RAG",
+    "Git",
+    "GitHub"
+  ],
+  "projects": [
+    {
+      "name": "HRSphere",
+      "domain": "Human Resource Management System",
+      "tech_stack": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "name": "Puja Parikrama Planner",
+      "domain": "Interactive Travel Planning",
+      "tech_stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Netlify",
+        "Leaflet.js"
+      ]
+    },
+    {
+      "name": "CodeMate",
+      "domain": "Developer Matchmaking Platform",
+      "tech_stack": [
+        "React",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Socket.io",
+        "Motion"
+      ]
+    },
+    {
+      "name": "Bharat-Darshan",
+      "domain": "Cultural and Natural Travel Platform",
+      "tech_stack": [
+        "React",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ]
+    }
+  ],
+  "top_projects": [
+    "HRSphere",
+    "Puja Parikrama Planner",
+    "CodeMate",
+    "Bharat-Darshan"
+  ],
+  "career_goal": "Software Development Engineer",
+  "contact": {
+    "email": "arunabhabanerjee5@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/arunabha369/",
+    "github": "https://github.com/arunabha369"
+  },
+  "hobbies": [
+    "Playing chess",
+    "Solving coding problems",
+    "Traveling",
+    "Reading Books"
+  ],
+  "quote": "I write things for machines—and they understand.",
+  "achievements": [
+    "Solved 200+ coding problems on LeetCode, GeeksforGeeks and Take U Forward",
+    "Implemented multiple web projects such as HRSphere, Puja Parikrama Planner, CodeMate and Bharat-Darshan"
+  ],
+  "personal_info": {
+    "name": "Arunabha Banerjee",
+    "age": 22,
+    "college": "Techno India University, West Bengal",
+    "degree": "B.Tech in Computer Science and Business Systems (CSBS)"
+  }
+}
