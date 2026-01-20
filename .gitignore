@@ -4,9 +4,6 @@ node_modules/
 # Environment variables
 .env
 
-# Vector Store (generated)
-vector_store/
-
 # Mac OS
 .DS_Store
 
