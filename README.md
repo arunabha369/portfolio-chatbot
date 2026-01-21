@@ -1,51 +1,62 @@
 # Arunabha Banerjee - Portfolio Chatbot Backend
 
-This is the backend for **Arunabha Banerjee's Portfolio Chatbot**. It is a **RAG (Retrieval-Augmented Generation)** based AI agent built with **Node.js**, **Express**, and **LangChain.js**. It answers questions about Arunabha's skills, projects, and background by retrieving information from his personal documents.
+This is the intelligent backend for **Arunabha Banerjee's Portfolio Chatbot**. It uses **RAG (Retrieval-Augmented Generation)** to answer questions about Arunabha's professional background, skills, and projects by retrieving context from his personal documents.
+
+Built with **Node.js**, **Express**, **LangChain.js**, and **Groq (Llama 3)**.
+
+---
 
 ## 🚀 Features
 
-- **Framework**: Built with Node.js and Express. It is lightweight and fast.
-- **AI Model**: Logic powered by **Groq** (using `llama3-70b-8192`) for incredibly fast inference.
-- **RAG Architecture**: Uses **LangChain.js** RAG chains (`createRetrievalChain`) to answer queries based on custom data.
-- **Vector Store**: Uses **HNSWLib** for efficient, local vector search.
-- **Embeddings**: Uses **HuggingFace Transformers** (`Xenova/bge-small-en-v1.5`) running locally to create embeddings (no external API cost for embeddings).
-- **Deployment Ready**: Configured for seamless deployment on **Render**.
+- **⚡ Blazing Fast AI Model**: Logic powered by **Groq** (using `openai/gpt-oss-120b`) for incredibly fast inference.
+- **🧠 Local RAG System**: Uses **HNSWLib** for efficient, local vector storage and retrieval.
+- **🔍 Intelligent Embeddings**: Currently configured to use **HuggingFace Transformers** (`Xenova/bge-small-en-v1.5`) for local embedding generation.
+- **💬 Contextual Memory**: Remembers previous turn of conversation for natural follow-up questions.
+- **🤖 Custom Persona**: "Arunabha AI" speaks in a friendly, professional tone representing Arunabha.
+- **📂 Multi-Format Support**: Ingests data from `JSON`, `TXT`, and `PDF` files.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Runtime**: Node.js
-- **Server**: Express.js
-- **Orchestration**: LangChain.js
-- **LLM Provider**: Groq
-- **Vector DB**: HNSWLib (Node)
-- **Embeddings**: @xenova/transformers
+| Component | Technology | Description |
+|-----------|------------|-------------|
+| **Runtime** | Node.js | JavaScript runtime environment |
+| **Server** | Express.js | REST API framework |
+| **Orchestration** | LangChain.js | Framework for building LLM applications |
+| **LLM** | Groq (GPT-OSS 120B) | High-performance inference engine |
+| **Vector DB** | HNSWLib (Node) | In-memory approximate nearest neighbor search |
+| **Embeddings** | @xenova/transformers | Local embedding model (ONNX Runtime) |
+
+---
 
 ## 📂 Project Structure
 
-```
+```bash
 .
-├── documents/              # Source files for RAG (txt, json, pdf)
-│   ├── arunabha.json
-│   ├── arunabha.txt
-│   └── portfolio-chatbot.pdf
-├── vector_store/           # Generated vector index (created on startup)
-├── .env                    # Environment variables
-├── .gitignore              # Git ignore rules
-├── index.js                # Main server entry point
-├── vectorStore.js          # Logic for loading docs and creating index
-└── package.json            # Dependencies
+├── documents/              # 📚 Source Knowledge Base
+│   ├── arunabha.json       # Structured data (skills, contact)
+│   ├── arunabha.txt        # Unstructured text (bio, about me)
+│   └── portfolio-chatbot.pdf # Project specific details
+├── vector_store/           # 🧠 Generated Vector Index (Created on startup)
+├── .env                    # 🔐 Environment Variables (API Keys)
+├── .gitignore              # 🙈 Git Ignore definitions
+├── index.js                # 🚀 Main Application Entry Point
+├── vectorStore.js          # ⚙️ Logic for RAG & Embeddings
+└── package.json            # 📦 Project Dependencies
 ```
+
+---
 
 ## ⚙️ Setup Instructions
 
 ### 1. Prerequisites
-- Node.js (v18 or higher)
-- NPM or Yarn
-- A [Groq API Key](https://console.groq.com/)
+- **Node.js**: v18.x or higher
+- **Groq API Key**: Get one for free at [console.groq.com](https://console.groq.com/)
 
 ### 2. Installation
 
-Clone the repository and install dependencies:
+Clone the repository and install the dependencies:
 
 ```bash
 git clone <your-repo-url>
@@ -55,13 +66,18 @@ npm install
 
 ### 3. Environment Configuration
 
-Create a `.env` file in the root directory and add your Groq API Key:
+Create a `.env` file in the root directory:
 
 ```env
-GROQ_API_KEY=your_groq_api_key_here
+# Required for LLM Inference
+GROQ_API_KEY=gsk_...
+
+# Optional: Server Port (Defaults to 8000)
 PORT=8000
+
+# Optional: If you switch to Google Embeddings later
+# GEMINI_API_KEY=...
 ```
-*(Note: `PORT` is optional, defaults to 8000)*
 
 ### 4. Running Locally
 
@@ -71,41 +87,78 @@ Start the server:
 npm start
 ```
 
-On the first run, the system will:
-1.  Read files from the `documents/` folder.
-2.  Generate embeddings.
-3.  Save the vector index to `vector_store/` directory.
-4.  Start the API server.
+**What happens on start?**
+1.  The server checks for the `vector_store/` directory.
+2.  If missing or if you modify `vectorStore.js`, it reads all files in `documents/`.
+3.  It generates embeddings using the local model (this may take a few seconds).
+4.  It saves the index to disk.
+5.  The API starts listening on port 8000.
 
-### 5. API Usage
+---
 
-**Endpoint**: `POST /chatbot`
+## 📡 API Usage
 
-**Request Body**:
+The backend exposes a single endpoint for chat interactions.
+
+### Endpoint: `POST /chatbot`
+
+#### Request
 ```json
 {
   "message": "Who is Arunabha?"
 }
 ```
 
-**Response**:
+#### Success Response (200 OK)
 ```json
 {
-  "answer": "Arunabha Banerjee is a B.Tech student in Computer Science..."
+  "answer": "Arunabha Banerjee is a Computer Science student at..."
 }
 ```
 
-## 🚀 Deployment (Render)
+#### Error Response
+```json
+{
+  "answer": "Sorry, something went wrong: [Error Details]"
+}
+```
 
-This project is configured for **Render**.
+---
 
-1.  Push your code to GitHub.
-2.  Create a new **Web Service** on Render.
-3.  Connect your repository.
-4.  **Build Command**: `npm install`
-5.  **Start Command**: `node index.js`
-6.  **Environment Variables**: Add `GROQ_API_KEY` in the Render dashboard.
+## ☁️ Deployment Guide (Render / Cloud)
 
-## 📄 Licensing
+This project is ready for deployment, but please note the **Memory Requirements**.
 
-This project is open-source. Feel free to use it as a template for your own portfolio chatbot!
+### ⚠️ Critical Note on Memory
+This project uses **Local Embeddings** (`@xenova/transformers`). This means the embedding model is loaded into the server's RAM.
+- **RAM Required**: ~1GB is recommended.
+- **Render Free Tier**: The free tier only offers **512MB RAM**.
+- **Result**: You might experience `Out of Memory (OOM)` crashes on the free tier during the "Creating new vector store" phase.
+
+### Solutions for Deployment
+1.  **Upgrade Plan**: Use a Starter plan or higher (with >1GB RAM).
+2.  **Switch to Cloud Embeddings**: Modification required. You can switch from local Transformers to Google Gemini Embeddings to offload memory usage to the cloud.
+
+### Steps to Deploy
+1.  Push code to **GitHub**.
+2.  Create a **Web Service** on Render/Railway/Heroku.
+3.  Set **Build Command**: `npm install`
+4.  Set **Start Command**: `node index.js`
+5.  Add Environment Variable: `GROQ_API_KEY`
+
+---
+
+## 📝 Customization
+
+### Adding New Knowledge
+1.  Place any `.txt`, `.json`, or `.pdf` file in the `documents/` folder.
+2.  Delete the `vector_store/` folder to force a rebuild.
+3.  Restart the server: `npm start`.
+
+### Changing the Personality
+Edit the `systemPrompt` in `index.js` to change how the AI behaves (e.g., tone, style, specific instructions).
+
+---
+
+## 📄 License
+This project is open-source.
