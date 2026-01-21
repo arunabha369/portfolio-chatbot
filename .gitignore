@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Vector Store (generated)
+# vector_store/ (Commented out to allow committing pre-built index for Render)
+
 # Environment variables
 .env
 

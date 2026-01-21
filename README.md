@@ -127,20 +127,23 @@ The backend exposes a single endpoint for chat interactions.
 
 ## ☁️ Deployment Guide (Render / Cloud)
 
-This project is ready for deployment, but please note the **Memory Requirements**.
+### 💡 Pro Tip: The "Free Tier Hack"
+**Why pay for RAM when you can be smart?** 🧠
 
-### ⚠️ Critical Note on Memory
-This project uses **Local Embeddings** (`@xenova/transformers`). This means the embedding model is loaded into the server's RAM.
-- **RAM Required**: ~1GB is recommended.
-- **Render Free Tier**: The free tier only offers **512MB RAM**.
-- **Result**: You might experience `Out of Memory (OOM)` crashes on the free tier during the "Creating new vector store" phase.
+Generating embeddings is heavy work (~1GB RAM). Render's free tier only gives you 512MB, which causes the server to crash if it tries to build the index on startup.
 
-### Solutions for Deployment
-1.  **Upgrade Plan**: Use a Starter plan or higher (with >1GB RAM).
-2.  **Switch to Cloud Embeddings**: Modification required. You can switch from local Transformers to Google Gemini Embeddings to offload memory usage to the cloud.
+**The Fix:**
+We commit the **pre-built** `vector_store/` folder to GitHub.
+- **Locally**: Your computer does the heavy lifting (generating embeddings).
+- **Render**: The server just loads the finished file. Zero stress. Zero crashes.
+
+**Steps:**
+1.  Run `npm start` locally once to generate `vector_store/`.
+2.  Push it to GitHub (it's already allowed in `.gitignore`).
+3.  Deploy. Enjoy your free hosting! 🎉
 
 ### Steps to Deploy
-1.  Push code to **GitHub**.
+1.  Push code (including `vector_store/`) to **GitHub**.
 2.  Create a **Web Service** on Render/Railway/Heroku.
 3.  Set **Build Command**: `npm install`
 4.  Set **Start Command**: `node index.js`
